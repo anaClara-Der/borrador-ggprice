@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./styles/inicio/search.css">
     <link rel="stylesheet" href="./styles/inicio/card.css">
     <link rel="stylesheet" href="./styles/inicio/index_desktop.css">
+    <link rel="stylesheet" href="./styles/cambioModo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -23,6 +24,12 @@
             <li class="menu__options--item">Registrarse</li>
         </ul>
     </header>
+      <!--Modo visual--> 
+    <div class="modo__container">
+        
+        <span class="modo__boton"><span class="modo__circulo"></span></span>
+    </div>
+
    <!--Cuerpo de la página--> 
     <main class="main">
         <!--Título y barra de búsqueda--> 
@@ -38,7 +45,7 @@
               </form>
               <!--Select para ordenar los juegos-->
               <div class="search__ordenar-container">
-                <label for="ordenar-select">Ordenar por:</label>
+                <label class="search__label" for="ordenar-select">Ordenar por:</label>
                 <select id="ordenar-select" class="ordenar__select">
                   <option value="relevancia" selected>Relevancia</option>
                   <option value="rating_desc">Mejor puntuados</option>
@@ -62,6 +69,7 @@
         <!--template cards juegos-->
         <template  id="card__template">
             <div class="card__juego">
+                <span class="linea"></span>
                 <img class="juego__img" src="" alt="">
                 <div class="container__juego--info">
                     <h2 class="juego__name"></h2>
@@ -79,6 +87,6 @@
     <script src="https://kit.fontawesome.com/d9e2ae4403.js" crossorigin="anonymous"></script>
     <script src="./scripts/index.js"></script>
     <script src="./scripts/search_Juegos.js"></script>
-   
+   <script src="./scripts/cambioModo.js"></script>
 </body>
 </html>

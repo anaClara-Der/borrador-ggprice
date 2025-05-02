@@ -22,10 +22,18 @@
     font-size: 20px;
     margin-bottom: 10px;
 }
+.juego__text{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.juego__fecha, .juego__plataformas{
+    font-weight: lighter;
+}
 .juego__fecha, .juego__plataformas, .juego__title--descripcion{
     margin-bottom: 10px;
     font-size: 1rem;
 }
+
 .juego__descripcion--text{
     font-size: 1rem;
     line-height: 1.5;

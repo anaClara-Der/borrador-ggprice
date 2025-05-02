@@ -5,7 +5,6 @@ const selectOrden = document.getElementById("ordenar-select");
 //Conectar a la api de búsqueda
 const buscarJuego = (nombre, orden = "relevancia") => {
   let ordering = "";
-
   if (orden === "rating_desc") ordering = "-rating";
   else if (orden === "rating_asc") ordering = "rating";
   else if (orden === "fecha_desc") ordering = "-released";

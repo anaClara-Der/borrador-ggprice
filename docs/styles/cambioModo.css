@@ -1,0 +1,19 @@
+/*Cambio de modo oscuro*/
+
+@media (prefers-color-scheme: dark) {
+    body {
+      background-color: var(--veryDarkBlue);
+    }
+  
+    .header {
+        background-color: var(--veryPaleBlue);
+        box-shadow: 0 4px 8px 0 var(--azulRgbaSuave);
+    }
+    .search--title, .search__label, .cards__title, .juego__name, .juego__plataformas, .juego__lanzamiento, .juego__rating, .juego__generos{
+        color: var(--white);
+    }
+    .card__juego{
+        background-color: var(--darkDesaturated);
+    }
+   
+  }
