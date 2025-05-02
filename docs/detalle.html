@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GG Price</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/detalle/detalle.css">
+    <link rel="stylesheet" href="./styles/detalle/detalle-desktop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+     <!--Encabezado--> 
+    <header class="header">
+        <img src="./assets/logo-ggprice.png" alt="GG PRICE logo" class="header__logo">
+        <i  class= "fas fa-bars menu__button" id="menu-button"></i>
+
+        <ul class="menu__options" id="menu-options">
+            <li class="menu__options--item">Iniciar sesión</li>
+            <li class="menu__options--item">Registrarse</li>
+        </ul>
+    </header>
+     <!--Cuerpo de la página--> 
+    <main class="detalle__juego">
+        <!--Detalles del juego--> 
+        <section class="detalle__juego--container">
+            <img class="juego__imagen" alt="Imagen del juego" />
+            <h1 class="juego__titulo"></h1>
+            <p class="juego__fecha"></p>
+            <p class="juego__plataformas"></p>
+       
+            <div>
+                <h2 class="juego__title--descripcion">Descripción</h2>
+                <p class="juego__descripcion--text"></p>
+            </div>
+        </section>
+      </main>
+      <script src="./scripts/detalle.js"></script>
+</body>
+</html>

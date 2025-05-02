@@ -1,6 +1,7 @@
 .cards{
     width: 80%;
     margin: 60px auto;
+    cursor: pointer;
 }
 
 .cards__container{
