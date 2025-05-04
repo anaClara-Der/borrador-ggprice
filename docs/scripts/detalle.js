@@ -1,4 +1,9 @@
 const API_KEY = "4b1742eb29634e329d7fd29447d706ca";
+const cardTempl = document.getElementById("template-precio").content;
+const fragment = document.createDocumentFragment();
+const listTarjetas = document.querySelector(".precios__lista");
+let tiendasPorId = {};
+
 // Obtener el ID de la URL
 const obtenerIdDeURL = () => {
   const params = new URLSearchParams(window.location.search);
@@ -10,9 +15,11 @@ const pedirDetalles = (juegoId) => {
   fetch(`https://api.rawg.io/api/games/${juegoId}?key=${API_KEY}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-
       pintarDetalles(data);
+      obtenerNegocios().then(() => {
+        obtenerPrecios(data.name);
+      });
+      console.log(data.name);
     });
 };
 
@@ -32,11 +39,62 @@ const pintarDetalles = (juego) => {
 
   document.querySelector(".juego__descripcion--text").textContent =
     juego.description_raw;
+};
 
-  //Al clickear una card envia a la pagina de detalle
-  clone.querySelector(".card__juego").addEventListener("click", () => {
-    window.location.href = `detalle.html?id=${juego.id}`;
+const obtenerNegocios = () => {
+  return fetch("https://www.cheapshark.com/api/1.0/stores")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      data.forEach((tienda) => {
+        tiendasPorId[tienda.storeID] = tienda.storeName;
+      });
+    })
+    .catch((error) => {
+      console.error("Error al obtener los negocios:", error);
+    });
+};
+
+//Pedir a la api los precios
+const obtenerPrecios = (nombreJuego) => {
+  fetch(
+    `https://www.cheapshark.com/api/1.0/deals?title=${encodeURIComponent(
+      nombreJuego
+    )}&exact=1`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      pintarPrecios(data);
+    });
+};
+
+//Pintar los precios
+const pintarPrecios = (precios) => {
+  console.log(precios);
+  if (precios.length > 0) {
+    const titulo = document.querySelector(".precios__titulo");
+    titulo.textContent = `Precio normal: $${precios[0].normalPrice}`;
+  } else {
+    document.querySelector(".precios__titulo").textContent =
+      "No se encontraron precios.";
+    return;
+  }
+
+  precios.forEach((precio) => {
+    const clone = cardTempl.cloneNode(true);
+
+    clone.querySelector(".precio__tienda").textContent =
+      tiendasPorId[precio.storeID] || "Tienda desconocida";
+    clone.querySelector(".precio__valor").textContent = precio.salePrice;
+
+    clone.querySelector(
+      ".precio__boton"
+    ).href = `https://www.cheapshark.com/redirect?dealID=${precio.dealID}`;
+
+    fragment.appendChild(clone);
   });
+  listTarjetas.appendChild(fragment);
 };
 
 // Ejecutar cuando cargue la página

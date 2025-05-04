@@ -12,6 +12,8 @@
     --azulGradient: linear-gradient(0.25turn, hsl(208, 100%, 60%), hsl(210, 90%, 50%), hsl(212, 100%, 40%));
     --azulRgbaSuave: rgba(72, 139, 255, 0.25);
     --darkDesaturated: hsl(228, 28%, 20%);
+    --veryDarkBlueDos: hsl(232, 19%, 15%);
+    --darkToggle: linear-gradient(0.25turn, #378fe6, #3eda82);
   }
   
   * {
@@ -22,4 +24,6 @@
 
   body{
     font-family: "PT Sans Narrow", sans-serif;
+    background-color: var(--white);
+    color: var(--black);
   }

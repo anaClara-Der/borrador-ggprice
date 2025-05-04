@@ -1,4 +1,12 @@
 /*Cambio de modo oscuro*/
+  .transformacion{
+    transform: translatex(20px);
+    transition: 0.3s transform;
+}
+
+.fondo{
+    background-image: var(--darkToggle);
+}
 
 @media (prefers-color-scheme: dark) {
     body {
@@ -9,11 +17,13 @@
         background-color: var(--veryPaleBlue);
         box-shadow: 0 4px 8px 0 var(--azulRgbaSuave);
     }
-    .search--title, .search__label, .cards__title, .juego__name, .juego__plataformas, .juego__lanzamiento, .juego__rating, .juego__generos{
+    .search--title, .search__label, .cards__title, .juego__name, .juego__plataformas, .juego__lanzamiento, .juego__rating, .juego__generos, .juego__titulo, .juego__text, .juego__text, .juego__fecha, .juego__text, .juego__plataformas, .juego__title--descripcion, .juego__descripcion--text, .precios__titulo, .precios__titulo, .precio__tienda, .precio__valor{
         color: var(--white);
     }
-    .card__juego{
+    
+    .card__juego, .precio__card{
         background-color: var(--darkDesaturated);
     }
    
   }
+

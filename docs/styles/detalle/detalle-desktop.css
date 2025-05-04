@@ -2,11 +2,8 @@
     .juego__imagen {
       max-width: 400px;
       height: auto;
-      margin: 0 auto 15px auto;
       display: block;
     }
-  
-    
   }
 
   @media (min-width: 500px) {
@@ -22,6 +19,18 @@
         align-items: flex-start;
         gap: 20px;
     }
-   
+    .precios__lista{
+      grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
   }
-  
+
+  @media (min-width: 800px) {
+    .juego__container--datos{
+        display: flex; 
+    }
+    .precios__lista{
+      grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+    }
+  }

@@ -29,13 +29,54 @@
 .juego__fecha, .juego__plataformas{
     font-weight: lighter;
 }
-.juego__fecha, .juego__plataformas, .juego__title--descripcion{
-    margin-bottom: 10px;
+.juego__fecha, .juego__plataformas{
+    margin-bottom: 15px;
     font-size: 1rem;
 }
-
+.juego__title--descripcion{
+    margin-bottom: 15px;
+}
 .juego__descripcion--text{
     font-size: 1rem;
     line-height: 1.5;
     text-align: justify;
+    margin-bottom: 20px;
 }
+
+/*Cards precios*/
+.precios__titulo{
+    margin-bottom: 20px;
+}
+
+.precios__lista{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    width: 100%;
+}
+.precio__card{
+    display: grid;
+    grid-template-columns: 2fr 1fr auto; 
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 var(--border);
+    background-color: var(--veryPaleBlue);
+    padding-top: 15px;
+}
+.precio__tienda {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .precio__boton {
+    padding: 6px 12px;
+    background:var(--azulGradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
