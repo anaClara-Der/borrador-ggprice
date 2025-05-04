@@ -8,8 +8,16 @@
     background-image: var(--darkToggle);
 }
 
+body.modo-claro {
+  background-color: var(--veryDarkBlue);
+}
+body.modo-claro{
+  background-color: var(--white);
+  color: var(--black);
+}
+
 @media (prefers-color-scheme: dark) {
-    body {
+    .body {
       background-color: var(--veryDarkBlue);
     }
   

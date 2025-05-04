@@ -71,7 +71,7 @@ const obtenerPrecios = (nombreJuego) => {
 
 //Pintar los precios
 const pintarPrecios = (precios) => {
-  console.log(precios);
+  //Para poder completar el titulo con el precio normal
   if (precios.length > 0) {
     const titulo = document.querySelector(".precios__titulo");
     titulo.textContent = `Precio normal: $${precios[0].normalPrice}`;
@@ -80,13 +80,24 @@ const pintarPrecios = (precios) => {
       "No se encontraron precios.";
     return;
   }
+  const precioNormal = parseFloat(precios[0].normalPrice);
 
   precios.forEach((precio) => {
     const clone = cardTempl.cloneNode(true);
 
     clone.querySelector(".precio__tienda").textContent =
       tiendasPorId[precio.storeID] || "Tienda desconocida";
-    clone.querySelector(".precio__valor").textContent = precio.salePrice;
+
+    const salePrice = parseFloat(precio.salePrice);
+    const valorElemento = clone.querySelector(".precio__valor");
+    valorElemento.textContent = `$${salePrice}`;
+
+    // Cambiar color según comparación
+    if (salePrice < precioNormal) {
+      valorElemento.style.color = "green";
+    } else if (salePrice > precioNormal) {
+      valorElemento.style.color = "red";
+    }
 
     clone.querySelector(
       ".precio__boton"
@@ -94,6 +105,7 @@ const pintarPrecios = (precios) => {
 
     fragment.appendChild(clone);
   });
+
   listTarjetas.appendChild(fragment);
 };
 
