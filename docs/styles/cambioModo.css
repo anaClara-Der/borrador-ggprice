@@ -1,23 +1,5 @@
-/*Cambio de modo oscuro*/
-  .transformacion{
-    transform: translatex(20px);
-    transition: 0.3s transform;
-}
-
-.fondo{
-    background-image: var(--darkToggle);
-}
-
-body.modo-claro {
-  background-color: var(--veryDarkBlue);
-}
-body.modo-claro{
-  background-color: var(--white);
-  color: var(--black);
-}
-
 @media (prefers-color-scheme: dark) {
-    .body {
+    body {
       background-color: var(--veryDarkBlue);
     }
   
