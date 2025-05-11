@@ -14,10 +14,8 @@
     position: relative;
     border-radius: 10px;
     margin-top: 20px;
-    box-shadow: 0 4px 8px 0 var(--border);
-    background-color: var(--darkDesaturated);
     padding: 15px;
-    background-color: #1f1f1f;
+    background-color: var(--backgroudnCards);
     border: 2px solid transparent;
     background-image: linear-gradient(#1f1f1f, #1f1f1f), var(--redGradient);
     background-origin: border-box;
@@ -60,21 +58,4 @@
 .juego__rating {
     color: gold;
   }
-  .juego__boton {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 6px 14px;
-    border: solid 1px red; 
-    border-radius: 5px;
-    background-color: transparent;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-  .juego__boton:hover {
-    background-image: var(--redGradient);
-    color: white;
-    border: none;
-  }
+ 
