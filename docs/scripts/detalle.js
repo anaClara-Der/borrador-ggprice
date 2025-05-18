@@ -23,6 +23,7 @@ const pedirDetalles = (juegoId) => {
     });
 };
 
+//Pintar las cards con los datos obtenidos de la api
 const pintarDetalles = (juego) => {
   document.querySelector(".juego__imagen").src = juego.background_image;
   document.querySelector(".juego__titulo").textContent = juego.name;
@@ -41,6 +42,7 @@ const pintarDetalles = (juego) => {
     juego.description_raw;
 };
 
+//Diferencias las tiendas que venden el videojuego
 const obtenerNegocios = () => {
   return fetch("https://www.cheapshark.com/api/1.0/stores")
     .then((res) => {
