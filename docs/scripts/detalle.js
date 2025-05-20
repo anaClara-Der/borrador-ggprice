@@ -133,14 +133,6 @@ function traducirConLingva(texto, callback) {
     });
 }
 
-// Texto en inglés que queremos traducir
-const descripcionIngles = " you must explore a vast alien world and survive.";
-
-// Llamada a la función y muestra en consola
-traducirConLingva(descripcionIngles, function (traduccion) {
-  console.log("Traducción:", traduccion);
-});
-
 // Ejecutar cuando cargue la página
 document.addEventListener("DOMContentLoaded", () => {
   const id = obtenerIdDeURL();
