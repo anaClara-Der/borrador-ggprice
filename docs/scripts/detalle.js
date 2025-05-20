@@ -29,6 +29,7 @@ const pintarDetalles = (juego) => {
   document.querySelector(".juego__titulo").textContent = juego.name;
   const lanzamiento = juego.released ? juego.released : "-";
   document.querySelector(".juego__fecha").textContent = lanzamiento;
+
   const plataformas = Array.isArray(juego.platforms)
     ? juego.platforms
         .filter((p) => p.platform && p.platform.name)
@@ -38,8 +39,16 @@ const pintarDetalles = (juego) => {
 
   document.querySelector(".juego__plataformas").textContent = plataformas;
 
-  document.querySelector(".juego__descripcion--text").textContent =
-    juego.description_raw;
+  // Traducción de la descripción
+  if (juego.description_raw) {
+    traducirConLingva(juego.description_raw, function (traduccion) {
+      document.querySelector(".juego__descripcion--text").textContent =
+        traduccion;
+    });
+  } else {
+    document.querySelector(".juego__descripcion--text").textContent =
+      "Descripción no disponible.";
+  }
 };
 
 //Diferencias las tiendas que venden el videojuego
@@ -111,6 +120,26 @@ const pintarPrecios = (precios) => {
 
   listTarjetas.appendChild(fragment);
 };
+
+function traducirConLingva(texto, callback) {
+  fetch(`https://lingva.ml/api/v1/en/es/${encodeURIComponent(texto)}`)
+    .then((res) => res.json())
+    .then((data) => {
+      callback(data.translation);
+    })
+    .catch((error) => {
+      console.error("Error con Lingva:", error);
+      callback("Error al traducir.");
+    });
+}
+
+// Texto en inglés que queremos traducir
+const descripcionIngles = " you must explore a vast alien world and survive.";
+
+// Llamada a la función y muestra en consola
+traducirConLingva(descripcionIngles, function (traduccion) {
+  console.log("Traducción:", traduccion);
+});
 
 // Ejecutar cuando cargue la página
 document.addEventListener("DOMContentLoaded", () => {
